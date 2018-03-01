@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="test.css">
+</head>
+<body>
+	<div class="box1"><h1>css回退样式</h1></div>
+	<button class="yes">YES!</button>
+	<button class="ok">OK!</button>
+	<button class="cancel">Cancel!</button>
+	<div>
+		<ul>
+			<li>hello</li>
+			<li>world</li>
+			<li>!!!</li>
+		</ul>
+		<ol>
+			<li>hello</li>
+			<li>world</li>
+			<li>!!!</li>
+		</ol>
+	</div>
+	<div class="box2">
+		半透明边框
+	</div>
+	<div class="box3">
+		多重边框
+	</div>
+	<div class="box4">
+		内圆角
+	</div>
+	<div class="box5">
+		条纹背景
+	</div>
+	<div class="box6">
+		格子背景的实现
+	</div>
+	<div class="box7">
+		信封背景
+	</div>
+	<div class="box8">
+		蚂蚁行军边框
+	</div>
+	<div class="box9">
+		椭圆圆角
+	</div>
+	<div class="box10">
+		使用伪元素创建平行四边形
+	</div>
+	<div class="box11">
+		<img src="cat.jpeg" alt="">
+	</div>
+	<div class="box12">
+		切角效果
+	</div>
+	<div class="box13">
+	目前看不出什么效果
+		连字效果:hello my name is kangkang,welcome to China!
+	</div>
+	<div class="box14">
+		<a href="">文字外发光效果</a>
+	</div>
+	<script type="text/javascript">
+		function testProperty(property) {
+			var root = document.documentElement;
+			if (property in root.style) {
+				root.classList.add(property.toLowerCase());
+				return true;
+			}
+			root.classList.add('no-' + property.toLowerCase());
+			return false;
+		}
+		console.log(testProperty("font-variant-ligatures"));
+		function testValue(id, value, property) {
+			//var root = document.documentElement;
+			var dummy = document.createElement('p');
+			dummy.style[property] = value;
+			if (dummy.style[property]) {
+				dummy.classList.add(id);
+				return true;
+			}
+			root.classList.add('no-' + id);
+			return false;
+		}
+		console.log(testValue("app","common-ligatures","font-variant-ligatures"))
+	</script>
+</body>
+</html>
